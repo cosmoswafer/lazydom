@@ -14,7 +14,7 @@ export class DOM {
     ) {
         const template_element = this.#lookup(selector, parent_node);
         this.#isLazy(template_element)
-            ? this.#cloneElement(template_element, parent_node)
+            ? this.#cloneElement(template_element)
             : (this.element = template_element);
         this.#styleShorthand();
     }
@@ -59,7 +59,8 @@ export class DOM {
         return target?.classList.contains(DOM.template_placeholder);
     }
 
-    #cloneElement(template_element, parent_node) {
+    #cloneElement(template_element) {
+        const parent_node = template_element.lazyParent ?? template_element.parentElement;
         this.element = template_element.cloneNode(true);
         parent_node.append(this.element);
         this.#cleanUp(template_element);
@@ -69,9 +70,8 @@ export class DOM {
         //Remove the duplicated class which cloned from template
         if (this.#isLazy(this.element))
             this.element.classList.remove(DOM.template_placeholder);
-        //We could hide the template by default, show our element after cloned
-        if (this.element.style.display === 'none')
-            this.element.style.display = '';
+        //Save the parent element before removing from DOM tree
+        if (! target.lazyParent) target.lazyParent = target.parentElement;
         //Remove the lazy template element from dom tree to save our time
         if (this.#isLazy(target)) target.remove();
     }
