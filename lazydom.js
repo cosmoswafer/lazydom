@@ -1,3 +1,18 @@
+/*
+ * DOM usage:
+ *
+ * Two cases:
+ * 1. DOM methods shortcut, use normal selector to look up elements
+ * 2. Lazy template, look up the template element and update its contents
+ *
+ * The shortcuts:
+ * 1. Query element and cache them to improve the performance
+ * 2. The `dot` method to quickly update set of contents
+ * 3. Binding event listeners as well by the above methods
+ *
+ * Remarks:
+ * 1. The lazy template will clone itself and clean up automatically.
+ */
 export class DOM {
     static template_placeholder = 'lazydom';
     static events = ['click', 'change'];
@@ -176,6 +191,13 @@ export class StoreBase {
     }
 }
 
+/*
+ * The Router could switch between pages by the url anchor hash.
+ * Just implement the PageBase class.
+ * There are two methods to switch pages:
+ * 1. Native anchor url, i.e. '#pageName'
+ * 2. The `show()` method of a Page instance
+ */
 export class PageBase {
     router = new Router();
     #pid;

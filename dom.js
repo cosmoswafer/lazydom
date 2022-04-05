@@ -59,7 +59,8 @@ export class DOM {
         return target?.classList.contains(DOM.template_placeholder);
     }
 
-    #cloneElement(template_element, parent_node) {
+    #cloneElement(template_element) {
+        const parent_node = template_element.parentElement ?? document.body;
         this.element = template_element.cloneNode(true);
         parent_node.append(this.element);
         this.#cleanUp(template_element);
