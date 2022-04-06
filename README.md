@@ -9,7 +9,7 @@ For developers who would like to rapidly develope web apps with standard DOM met
 Example:
 
 ```sh
-$ git submodule add https://github.com/jimmy09140456/lazydom.git
+$ git submodule add -b release https://github.com/jimmy09140456/lazydom.git
 ```
 
 2. Import from GitHub Pages CDN:
