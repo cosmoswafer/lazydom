@@ -20,8 +20,8 @@ Example:
 
 ```javascript
 <script type="module">
-  import {DOM} from 'https://jimmy09140456.github.io/lazydom/dom.js'; //Do
-  whatever you want...
+  import {DOM} from 'https://jimmy09140456.github.io/lazydom/dom.js'; 
+  //Do whatever you want...
 </script>
 ```
 
