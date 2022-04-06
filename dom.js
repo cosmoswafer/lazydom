@@ -19,11 +19,11 @@ export class DOM {
         this.#styleShorthand();
     }
 
-    dot(dataset) {
-        for (let d of dataset) {
+    dot(...dom_array) {
+        for (let d of dom_array) {
             //If the second elemenmt is not empty text, set the textContent
             if (d.length > 2 && d[1] != '' || d.length == 2) this.text(d[0], d[1]);
-            //If there is attributes object, assign it
+            //If there is attributes object, assign its values
             if (d.length == 3) this.attr(d[0], d[2]);
         }
 
