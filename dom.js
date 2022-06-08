@@ -21,10 +21,14 @@ export class DOM {
 
     dot(...dom_array) {
         for (let d of dom_array) {
+            const selector = d[0];
+            const textContent = d[1];
+            const attributes = d[2];
+
             //If the second elemenmt is not empty text, set the textContent
-            if (d.length > 2 && d[1] != '' || d.length == 2) this.text(d[0], d[1]);
+            if (d.length > 2 && textContent != '' || d.length == 2) this.text(selector, textContent);
             //If there is attributes object, assign its values
-            if (d.length == 3) this.attr(d[0], d[2]);
+            if (d.length == 3) this.attr(selector, attributes);
         }
 
         return this;
