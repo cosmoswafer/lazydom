@@ -91,9 +91,13 @@ export class DOM {
     #setAttr(target_element, attributes) {
         for (let k in attributes) {
             const p = [k, attributes[k]];
-            DOM.events.includes(k)
-                ? target_element.addEventListener(...p)
-                : target_element.setAttribute(...p);
+            if (Dom.events.includes(k)) {
+                target_element.addEventListener(...p)
+            } else if (target_element.nodeName === 'INPUT' && k === 'value') {
+                target_element.value = attributes[k];
+            } else {
+                target_element.setAttribute(...p);
+            }
         }
     }
 
