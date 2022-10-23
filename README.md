@@ -9,18 +9,18 @@ For developers who would like to rapidly develope web apps with standard DOM met
 Example:
 
 ```sh
-$ git submodule add -b release https://github.com/jimmy09140456/lazydom.git
+$ git submodule add -b release https://github.com/cosmoswafer/lazydom.git
 ```
 
 2. Import from GitHub Pages CDN:
 
-`https://jimmy09140456.github.io/lazydom/<module>.js`
+`https://cosmoswafer.github.io/lazydom/<module>.js`
 
 Example:
 
 ```javascript
 <script type="module">
-  import {DOM} from 'https://jimmy09140456.github.io/lazydom/dom.js'; //Do
+  import {DOM} from 'https://cosmoswafer.github.io/lazydom/dom.js'; //Do
   whatever you want...
 </script>
 ```
